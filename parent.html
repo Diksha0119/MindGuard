@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parent Dashboard</title>
+</head>
+<body>
+
+    <h2>Parent Dashboard</h2>
+    <p>Overview of recent digital activity</p>
+  
+    <p id="parentTime">Screen Time: --</p>
+    <p id="parentLevel">Overstimulation Level: --</p>
+    <p id="alert"></p>
+  
+    <script>
+      const time = localStorage.getItem("screenTime");
+      const level = localStorage.getItem("overstimulationLevel");
+  
+      if (time && level) {
+        document.getElementById("parentTime").innerText =
+          "Screen Time: " + time + " minutes";
+  
+        document.getElementById("parentLevel").innerText =
+          "Overstimulation Level: " + level;
+  
+        if (level === "High") {
+          document.getElementById("alert").innerText =
+            "⚠ High stimulation detected. A short break is recommended .";
+        }
+      }
+    </script>
+  
+  </body>
+  
+</html>
